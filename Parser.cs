@@ -51,8 +51,8 @@ namespace AgroCase
                         var parts = coord.Split(',');
                         double latitude = 0, longitude = 0;
 
-                        double.TryParse(parts[1], NumberStyles.Float, CultureInfo.InvariantCulture, out latitude);  // lat
-                        double.TryParse(parts[0], NumberStyles.Float, CultureInfo.InvariantCulture, out longitude); // lng
+                        double.TryParse(parts[0], NumberStyles.Float, CultureInfo.InvariantCulture, out latitude);  // lat
+                        double.TryParse(parts[1], NumberStyles.Float, CultureInfo.InvariantCulture, out longitude); // lng
 
                         return new List<double> { latitude, longitude };
                     }).ToList();
@@ -64,10 +64,10 @@ namespace AgroCase
                 {
                     var parts = centerCoordinates.Split(',');
                     center = new List<double>
-            {
-                double.TryParse(parts[0], NumberStyles.Float, CultureInfo.InvariantCulture, out double lat) ? lat : 0,  // lat
-                double.TryParse(parts[1], NumberStyles.Float, CultureInfo.InvariantCulture, out double lng) ? lng : 0   // lng
-            };
+                    {
+                        double.TryParse(parts[0], NumberStyles.Float, CultureInfo.InvariantCulture, out double lat) ? lat : 0,  // lat
+                        double.TryParse(parts[1], NumberStyles.Float, CultureInfo.InvariantCulture, out double lng) ? lng : 0   // lng
+                    };
                 }
 
                 fieldsList.Add(new Field

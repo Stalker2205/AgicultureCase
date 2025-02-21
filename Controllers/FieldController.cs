@@ -76,11 +76,11 @@ namespace AgroCase.Controllers
         [HttpGet("point")]
         public IActionResult CheckPoint([FromQuery] double lat, [FromQuery] double lng)
         {
-            var point = new Point(new Coordinate(lng, lat));
+            var point = new Point(new Coordinate(lat, lng));
 
             foreach (var field in fields)
             {
-                var coordinates = field.Locations.Polygon.Select(coord => new Coordinate(coord[0], coord[1])).ToArray();
+                var coordinates = field.Locations.Polygon.Select(coord => new Coordinate(coord[1], coord[0])).ToArray();
                 var polygon = new Polygon(new LinearRing(coordinates));
 
                 if (polygon.Contains(point))
